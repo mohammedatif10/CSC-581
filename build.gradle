@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Add your project's dependencies here
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'main' // Specify the source directory for your main Java code
+        }
+    }
+    test {
+        java {
+            srcDir 'test' // Specify the source directory for your test Java code
+        }
+    }
+}
+
+test {
+    useJUnitPlatform() // Use JUnit 5 (JUnit Platform)
+
+    // Configure the XML test report generation
+    reports {
+        junitXml {
+            outputPerTestCase = true
+            destination = file("$buildDir/test-results/test") // Specify the output directory for XML reports
+        }
+    }
+
+    testLogging {
+        events "passed", "skipped", "failed" // Configure which test events are logged
+        showStandardStreams = true // Show standard streams (e.g., println) from tests
+    }
+}
