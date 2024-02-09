@@ -21,7 +21,7 @@ public class MathUtils {
     
     public static void main(String[] args) {
         MathUtils mathUtils = new MathUtils();
-        System.out.println("Addition: " + mathUtils.add(7, 8));
+        System.out.println("Addition: " + mathUtils.add(8, 9));
         System.out.println("Subtraction: " + mathUtils.subtract(5, 3));
         System.out.println("Multiplication: " + mathUtils.multiply(5, 3));
         System.out.println("Division: " + mathUtils.divide(6, 3));
